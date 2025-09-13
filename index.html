@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Робота на будівництві в Україні</title>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      /* Стабільне посилання на фото */
+      background:url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80") 
+                 no-repeat center center/cover;
+      position:relative;
+    }
+    .overlay{
+      background:rgba(0,0,0,0.65);
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      z-index:1;
+    }
+    .card{
+      position:relative;
+      z-index:2;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter: blur(6px);
+      padding:40px 30px;
+      border-radius:16px;
+      box-shadow:0 6px 30px rgba(0,0,0,0.25);
+      max-width:700px;
+      width:92%;
+      text-align:center;
+      animation:fadeInUp 0.8s ease-out;
+    }
+    h1{font-size:28px;margin-bottom:14px}
+    p.lead{margin:0 0 20px;color:#333;font-size:18px}
+    ul{margin:0 0 24px;list-style:none}
+    ul li{margin:8px 0;font-size:16px}
+    .cta{
+      display:inline-block;
+      padding:16px 26px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      background:#007bff;
+      color:white;
+      font-size:17px;
+      transition:all 0.2s ease;
+    }
+    .cta:hover{background:#0056b3;transform:scale(1.05)}
+    .small{font-size:13px;color:#fff;margin-top:16px}
+    a { color:#ffffcc; }
+    @keyframes fadeInUp{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="card">
+    <h1>Робота на будівництві в Україні</h1>
+    <p class="lead">Стабільна офіційна зайнятість з високою оплатою праці.</p>
+
+    <ul>
+      <li>💰 Зарплата від 40 000–50 000 грн на місяць</li>
+      <li>📆 Регулярні виплати без затримок</li>
+      <li>🏠 Житло або компенсація проживання</li>
+    </ul>
+
+    <a class="cta" id="openBot" href="#">Подати заявку в Telegram</a>
+    <div class="small">Натискаючи, ви погоджуєтесь з <a href="/privacy">Політикою конфіденційності</a>.</div>
+  </div>
+
+  <script>
+    (function(){
+      function getQueryParam(name){
+        const params = new URLSearchParams(location.search);
+        return params.get(name) || '';
+      }
+      const utm = [];
+      ['utm_source','utm_medium','utm_campaign','gclid','fbclid'].forEach(k=>{
+        const v = getQueryParam(k);
+        if(v) utm.push(k+'='+encodeURIComponent(v));
+      });
+      const payload = utm.length ? btoa(utm.join('&')) : '';
+      const botUser = 'JobifBot';
+      const link = payload ? `https://t.me/${botUser}?start=${payload}` : `https://t.me/${botUser}`;
+      document.getElementById('openBot').href = link;
+    })();
+  </script>
+</body>
+</html>
