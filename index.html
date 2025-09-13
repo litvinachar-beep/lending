@@ -54,19 +54,22 @@
     p.lead{margin:0 0 20px;color:#333;font-size:18px}
     ul{margin:0 0 24px;list-style:none}
     ul li{margin:8px 0;font-size:16px}
-    .cta{
+
+    /* Спільний стиль для кнопок */
+    .button {
       display:inline-block;
       padding:16px 26px;
       border-radius:12px;
       text-decoration:none;
       font-weight:600;
-      background:#007bff;
+      background:#007bff; /* один колір для обох кнопок */
       color:white;
       font-size:17px;
       transition:all 0.2s ease;
       margin-bottom:12px;
     }
-    .cta:hover{background:#0056b3;transform:scale(1.05)}
+    .button:hover{background:#0056b3; transform:scale(1.05)}
+
     .small{font-size:13px;color:#fff;margin-top:16px}
     a { color:#ffffcc; }
     @keyframes fadeInUp{
@@ -74,28 +77,12 @@
       to{opacity:1;transform:translateY(0)}
     }
 
-    /* Плаваюча кнопка дзвінка */
+    /* Плаваюча кнопка дзвінка з тим самим стилем */
     .floating-call {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #28a745;
-      color: white;
-      font-weight: 600;
-      padding: 16px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-      transition: all 0.2s ease;
       z-index: 999;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 17px;
-    }
-    .floating-call:hover {
-      background: #1e7e34;
-      transform: scale(1.05);
     }
   </style>
 </head>
@@ -111,13 +98,13 @@
       <li>🏠 Житло або компенсація проживання</li>
     </ul>
 
-    <a class="cta" id="openBot" href="#">Подати заявку в Telegram</a>
+    <a class="button" id="openBot" href="#">Подати заявку в Telegram</a>
 
     <div class="small">Натискаючи, ви погоджуєтесь з <a href="/privacy">Політикою конфіденційності</a>.</div>
   </div>
 
-  <!-- Плаваюча кнопка дзвінка -->
-  <a href="tel:+380123456789" class="floating-call">📞 Зателефонувати</a>
+  <!-- Плаваюча кнопка дзвінка з однаковим стилем -->
+  <a href="tel:+380734330511" class="button floating-call">📞 Зателефонувати</a>
 
   <script>
     (function(){
